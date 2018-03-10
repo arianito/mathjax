@@ -1,0 +1,28 @@
+{
+  "name": "mathjax-compact",
+  "version": "1.0.0",
+  "description": "Very simple integration of mathjax",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aryan Alikhani",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xeuus/mathjax.git"
+  },
+  "keywords": [
+    "mathjax",
+    "math",
+    "editor"
+  ],
+  "bugs": {
+    "url": "https://github.com/xeuus/mathjax/issues"
+  },
+  "homepage": "https://github.com/xeuus/mathjax#readme"
+}

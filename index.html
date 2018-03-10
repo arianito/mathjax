@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MathJax</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            extensions: ['tex2jax.js','asciimath2jax.js','Safe.js'],
+            TeX: {
+                extensions: ['color.js', 'autobold.js','AMSsymbols.js', 'AMSmath.js'],
+            },
+            jax: ["input/AsciiMath", "output/HTML-CSS"],
+            tex2jax: {
+                inlineMath: [ ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: false
+            },
+            asciimath2jax: {
+                delimiters: [["$","$"],['`','`']]
+            },
+            "HTML-CSS": { availableFonts: ["STIX"],
+                preferredFont: 'STIX',
+                webFont: 'STIX-Web',
+                imageFont: null,
+                scale: 150,
+            },
+            showMathMenu: false,
+            showMathMenuMSIE: false,
+            showProcessingMessages: false,
+            displayAlign:'left',
+            displayIndent: "1em"
+        });
+    </script>
+    <script type="text/javascript" src="mathjax/MathJax.js"></script>
+
+    <script>
+        (function () {
+            var QUEUE = MathJax.Hub.queue;
+            var math = null;
+            QUEUE.Push(function () {
+                math = MathJax.Hub.getAllJax("MathOutput")[0];
+            });
+            window.UpdateMath = function (TeX) {
+                QUEUE.Push(["Text", math, TeX]);
+            }
+        })();
+    </script>
+</head>
+
+
+<body>
+<input id="MathInput" size="50" value="x(t)=sum_(k=-infty)^(infty)a_k e^(jkomega_0t)" onkeyup="UpdateMath(this.value)"/>
+<p>
+<div id="MathOutput">
+    `{"write math above"}`
+</div>
+</p>
+
+<script>
+    setTimeout(function () {
+        var strz = document.querySelector('#MathInput').value;
+        window.UpdateMath(strz);
+    }, 300);
+</script>
+</body>
+</html>
+
